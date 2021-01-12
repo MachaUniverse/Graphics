@@ -5,14 +5,17 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEditor.Rendering;
+using UnityEngine.Rendering.Tests;
 
-namespace UnityEngine.Rendering.Tests.Volumes
+namespace UnityEngine.Rendering.HighDefinition.Tests.Volumes
 {
     public class VolumeComponentEditorTests<TComponent>
         where TComponent : VolumeComponent
     {
         protected TComponent component { get; set; }
         protected VolumeComponentEditor editor { get; set; }
+
+        protected virtual List<string> additionalProperties => null;
         
         [SetUp]
         public void Init()
@@ -20,6 +23,18 @@ namespace UnityEngine.Rendering.Tests.Volumes
             component = ScriptableObject.CreateInstance<TComponent>();
             editor = (VolumeComponentEditor)Activator.CreateInstance(typeof(VolumeComponentEditor));
             editor.Invoke("Init", component, null);
+        }
+
+        [Test]
+        public void TestOverridesChanges()
+        {
+            CheckOverridesChanges();
+        }
+
+        [Test]
+        public void TestCheckWithCurrentAdditionalProperties()
+        {
+            CheckWithCurrentAdditionalProperties(additionalProperties);
         }
 
         [TearDown]
@@ -30,6 +45,7 @@ namespace UnityEngine.Rendering.Tests.Volumes
 
         protected void CheckWithCurrentAdditionalProperties(List<string> additionalProperties)
         {
+            Assert.True(additionalProperties != null, "additionalProperties should not be null") ;
             var fields = component
                 .GetFields()
                 .Where(f => f.GetCustomAttribute<AdditionalAttribute>() != null)

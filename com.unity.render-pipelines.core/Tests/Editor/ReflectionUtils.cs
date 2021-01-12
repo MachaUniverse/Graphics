@@ -18,7 +18,7 @@ namespace UnityEngine.Rendering.Tests
             Assert.True(target != null, "The target could not be null");
             Assert.IsNotEmpty(methodName, "The field to set could not be null");
 
-            var mi = target.GetType().GetMethod(methodName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            var mi = target.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
             Assert.True(mi != null, $"Could not find method `{methodName}` on object `{target}`");
             return mi.Invoke(target, args);
         }
