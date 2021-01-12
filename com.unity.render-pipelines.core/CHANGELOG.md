@@ -15,6 +15,7 @@ The version number for this package has increased due to a version update of a r
 - Fixed the default background color for previews to use the original color.
 - Fixed spacing between property fields on the Volume Component Editors.
 - Fixed ALL/NONE to maintain the state on the Volume Component Editors.
+- Fixed the selection of the Additional properties from ALL/NONE when the option "Show additional properties" is disabled
 
 ### Fixed
 - Fixed ACES tonemaping for Nintendo Switch by forcing some shader color conversion functions to full float precision.
