@@ -81,9 +81,10 @@ namespace UnityEngine.Rendering
         /// <summary>
         /// Extracts all the <see cref="VolumeParameter"/>s defined in this class and nested classes.
         /// </summary>
+        /// <param name="o">The object to find the parameters</param>
         /// <param name="parameters">The list filled with the parameters.</param>
         /// <param name="filter">If you want to filter the parameters</param>
-        public static void FindParameters(object o, List<VolumeParameter> parameters, Func<FieldInfo, bool> filter = null)
+        internal static void FindParameters(object o, List<VolumeParameter> parameters, Func<FieldInfo, bool> filter = null)
         {
             if (o == null)
                 return;
@@ -207,7 +208,7 @@ namespace UnityEngine.Rendering
         /// Sets the override state of the given parameters on this component to a given value.
         /// </summary>
         /// <param name="state">The value to set the state of the overrides to.</param>
-        public void SetOverridesTo(IEnumerable<VolumeParameter> enumerable, bool state)
+        internal void SetOverridesTo(IEnumerable<VolumeParameter> enumerable, bool state)
         {
             foreach (var prop in enumerable)
             {
