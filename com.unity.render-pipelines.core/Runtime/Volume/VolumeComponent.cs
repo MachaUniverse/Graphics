@@ -97,7 +97,7 @@ namespace UnityEngine.Rendering
                 if (field.FieldType.IsSubclassOf(typeof(VolumeParameter)))
                 {
                     if (filter?.Invoke(field) ?? true)
-                        parameters.Add((VolumeParameter) field.GetValue(o));
+                        parameters.Add((VolumeParameter)field.GetValue(o));
                 }
                 else if (!field.FieldType.IsArray && field.FieldType.IsClass)
                     FindParameters(field.GetValue(o), parameters, filter);

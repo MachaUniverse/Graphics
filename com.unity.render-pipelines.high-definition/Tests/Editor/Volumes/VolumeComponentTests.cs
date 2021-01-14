@@ -16,7 +16,7 @@ namespace UnityEngine.Rendering.HighDefinition.Tests.Volumes
         protected VolumeComponentEditor editor { get; set; }
 
         protected virtual List<string> additionalProperties => null;
-        
+
         [SetUp]
         public void Init()
         {
@@ -45,7 +45,7 @@ namespace UnityEngine.Rendering.HighDefinition.Tests.Volumes
 
         protected void CheckWithCurrentAdditionalProperties(List<string> additionalProperties)
         {
-            Assert.True(additionalProperties != null, "additionalProperties should not be null") ;
+            Assert.True(additionalProperties != null, "additionalProperties should not be null");
             var fields = component
                 .GetFields()
                 .Where(f => f.GetCustomAttribute<AdditionalAttribute>() != null)
@@ -92,4 +92,3 @@ namespace UnityEngine.Rendering.HighDefinition.Tests.Volumes
         }
     }
 }
-

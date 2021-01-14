@@ -19,7 +19,7 @@ namespace UnityEditor.Rendering.HighDefinition
         SerializedDataParameter m_HighQualityFiltering;
         SerializedDataParameter m_Resolution;
         SerializedDataParameter m_Anamorphic;
-        
+
         public override void OnEnable()
         {
             var o = new PropertyFetcher<Bloom>(serializedObject);

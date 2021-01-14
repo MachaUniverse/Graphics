@@ -22,7 +22,7 @@ namespace UnityEditor.Rendering.HighDefinition
 
         SerializedDataParameter m_DepthCmpScale;
         SerializedDataParameter m_CameraMotionBlur;
-        
+
         public override void OnEnable()
         {
             var o = new PropertyFetcher<MotionBlur>(serializedObject);

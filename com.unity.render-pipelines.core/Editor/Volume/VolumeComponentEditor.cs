@@ -89,7 +89,7 @@ namespace UnityEditor.Rendering
         {
             get
             {
-                m_OverrideToggleSize ??= CoreEditorStyles.smallTickbox.CalcSize(Texts.overrideSettingText);
+                m_OverrideToggleSize ?? = CoreEditorStyles.smallTickbox.CalcSize(Texts.overrideSettingText);
                 return m_OverrideToggleSize.Value;
             }
         }
@@ -139,7 +139,7 @@ namespace UnityEditor.Rendering
                 }
             }
         }
-        
+
         /// <summary>
         /// A reference to the parent editor in the Inspector.
         /// </summary>
