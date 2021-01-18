@@ -16,10 +16,10 @@ namespace UnityEngine.Rendering.Tests
 
         class VolumeComponentAllAdditionalAttributes : VolumeComponent
         {
-            [Additional]
+            [AdditionalProperty]
             public MinFloatParameter parameter1 = new MinFloatParameter(0f, 0f);
 
-            [Additional]
+            [AdditionalProperty]
             public FloatParameter parameter2 = new MinFloatParameter(0f, 0f);
         }
 
@@ -27,12 +27,12 @@ namespace UnityEngine.Rendering.Tests
         {
             public MinFloatParameter parameter1 = new MinFloatParameter(0f, 0f);
 
-            [Additional]
+            [AdditionalProperty]
             public FloatParameter parameter2 = new MinFloatParameter(0f, 0f);
 
             public MinFloatParameter parameter3 = new MinFloatParameter(0f, 0f);
 
-            [Additional]
+            [AdditionalProperty]
             public FloatParameter parameter4 = new MinFloatParameter(0f, 0f);
         }
 
@@ -94,7 +94,7 @@ namespace UnityEngine.Rendering.Tests
 
             var fields = component
                 .GetFields()
-                .Where(f => f.GetCustomAttribute<AdditionalAttribute>() != null)
+                .Where(f => f.GetCustomAttribute<AdditionalPropertyAttribute>() != null)
                 .Select(f => f.Name)
                 .ToArray();
 

@@ -89,7 +89,8 @@ namespace UnityEditor.Rendering
         {
             get
             {
-                m_OverrideToggleSize ?? = CoreEditorStyles.smallTickbox.CalcSize(Styles.overrideSettingText);
+                if (!m_OverrideToggleSize.HasValue)
+                    m_OverrideToggleSize = CoreEditorStyles.smallTickbox.CalcSize(Styles.overrideSettingText);
                 return m_OverrideToggleSize.Value;
             }
         }
@@ -205,7 +206,7 @@ namespace UnityEditor.Rendering
         void InitParameters()
         {
             m_VolumeNotAdditionalParameters = new List<VolumeParameter>();
-            VolumeComponent.FindParameters(target, m_VolumeNotAdditionalParameters, field => field.GetCustomAttribute<AdditionalAttribute>() == null);
+            VolumeComponent.FindParameters(target, m_VolumeNotAdditionalParameters, field => field.GetCustomAttribute<AdditionalPropertyAttribute>() == null);
         }
 
         void GetFields(object o, List<(FieldInfo, SerializedProperty)> infos, SerializedProperty prop = null)

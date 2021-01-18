@@ -18,7 +18,7 @@ namespace UnityEngine.Rendering
     /// Attribute used to customize UI display to allow properties only be visible when "Show Additional Properties" is selected
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
-    public class AdditionalAttribute : Attribute
+    public class AdditionalPropertyAttribute : Attribute
     {
     }
 }
